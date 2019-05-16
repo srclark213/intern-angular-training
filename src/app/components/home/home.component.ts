@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit {
   }
 
   isNumber(val: string): boolean {
-    return !isNaN(Number(val));
+    return val && !isNaN(Number(val));
   }
 
 }
