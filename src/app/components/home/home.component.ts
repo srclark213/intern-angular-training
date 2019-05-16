@@ -18,6 +18,10 @@ export class HomeComponent implements OnInit {
   }
 
   add(val: string) {
+    if (!val || val.length == 0) {
+      return;
+    }
+    
     this.items.push(val);
   }
 
@@ -26,7 +30,7 @@ export class HomeComponent implements OnInit {
   }
 
   changeModeledVal() {
-    this.modeledVal = 'Big Yeet';
+    this.modeledVal = 'And now for something completely different';
   }
 
   isNumber(val: string): boolean {

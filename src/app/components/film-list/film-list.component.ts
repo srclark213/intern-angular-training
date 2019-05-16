@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Film } from '../models/film';
-import { FilmService } from '../film.service';
+import { Film } from '../../models/film';
+import { FilmService } from '../../services/film.service';
 import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-film-list',
@@ -11,6 +12,7 @@ import { map } from 'rxjs/operators';
 export class FilmListComponent implements OnInit {
 
   public films: Film[];
+  public films$: Observable<Film[]>;
 
   constructor(private filmService: FilmService) { }
 
@@ -19,9 +21,7 @@ export class FilmListComponent implements OnInit {
   }
 
   loadFilms() {
-    this.filmService.getFilms()
-      .pipe(map(films => films.sort((film1, film2) => film1.episode_id - film2.episode_id))) // sort in episode order
-      .subscribe(films => this.films = films);
+    this.films$ = this.filmService.getFilms()
+      .pipe(map(films => films.sort((film1, film2) => film1.episode_id - film2.episode_id))); // sort in episode order
   }
-
 }

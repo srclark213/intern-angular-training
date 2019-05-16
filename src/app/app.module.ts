@@ -5,8 +5,8 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FilmListComponent } from './film-list/film-list.component';
-import { HomeComponent } from './home/home.component';
+import { FilmListComponent } from './components/film-list/film-list.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
