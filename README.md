@@ -1,27 +1,66 @@
-# StarWars
+## Typescript
+* start with function calls
+* point out compiled JS pretty much matches the typescript
+* add a class
+* point out class's compiled code is weird/different
+* add an interface
+* point out interface just doesn't generate any compiled code
+* We like interfaces for simple type definitions because they don't add any bloat
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
+## Angular
+* Start with blank app
+* Explain basic anatomy (modules, components, services) (slide?)
+* Create a component
+* get our component shown on homepage
+* demonstrate basic angular tools:
+    * input with button that alerts (input binding, button eventing, template ref vs ngModel)
+    * showing data from typescript on component
+    * ngFor
+    * add/remove from list (combo of inputs, data from components, and ngFor)
+    * ngIf
+* Configure Routing
+* Add Star Wars films component
+* Add route
+* style component with static data (make types for static data)
+* create service (return static data)
+* use service
+* update service to call api
+* rxjs (pipes, mapping, async pipe)
+* Bonuses:
+    * caching api requests
+    * modules
+    * directives
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Typescript Example Code
+```typescript
+function hello(msg: string) {
+    return "Hello, " + msg;
+}
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+const test = hello("test");
 
-## Build
+let result = hello(test);
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+class TestClass {
+    message: string;
 
-## Running unit tests
+    constructor(msg: string) {
+        this.message = msg;
+    }
+}
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+const instance = new TestClass("something");
+instance.message = "something else";
 
-## Running end-to-end tests
+result = hello(instance.message);
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+interface TestInterface {
+    message: string;
+}
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+const instance2: TestInterface = { message: "interface" };
+result = hello(instance2.message);
+alert(result);
+```
