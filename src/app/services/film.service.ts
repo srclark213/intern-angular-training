@@ -12,8 +12,6 @@ export class FilmService {
   constructor(private http: HttpClient) { }
 
   public getFilms(): Observable<Film[]> {
-    return of(testData);
-
     return this.http.get<SwapiFilmResponse>('https://swapi.co/api/films/').pipe(map(response => response.results));
   }
 }
