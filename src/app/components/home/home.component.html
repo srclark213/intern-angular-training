@@ -1,18 +1,9 @@
 <div class="card p-3 w-50">
   <p *ngFor="let item of items">
     {{item}}
-    <span class="badge badge-info">length: {{item.length}}</span>
-    <span class="badge badge-secondary" *ngIf="isNumber(item)">number</span>
   </p>
 
   <input type="text" class="form-control" #input>
 
-  <button type="button" class="btn btn-primary" (click)="add(input.value)">Add Template Ref</button>
-
-  <input type="text" class="form-control" [(ngModel)]="modeledVal">
-
-  <div class="btn-group">
-    <button type="button" class="btn btn-secondary" (click)="addModeledVal()">Add NgModel</button>
-    <button type="button" class="btn btn-danger" (click)="changeModeledVal()">Update NgModel</button>
-  </div>
+  <button type="button" class="btn btn-primary" (click)="add(input.value)">Add</button>
 </div>
